@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/vv.png">
+    <link rel="stylesheet" href="styles.css">
+    <title>Financiamento</title>
+    <style>
+        container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: calc(100vh - 80px);
+            padding: 3rem 1.5rem;
+            background-color: var(--dark-bg, #0f172a);
+        }
+
+        .form-group {
+            width: 100%;
+            max-width: 650px;
+            background-color: #ffffff;
+            padding: 2.5rem;
+            border-radius: 1.5rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            border: 1px solid #f1f5f9;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .form-group h1 {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.025em;
+        }
+
+        .form-group label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.35rem;
+            display: block;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            background-color: var(--bg-light, #f8fafc);
+            border: 1px solid var(--border-color, #e2e8f0);
+            color: #1e293b;
+            border-radius: 0.75rem;
+            padding: 0.75rem 0.9rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            outline: none;
+            transition: all 0.2s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: var(--primary-blue, #2563eb);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+            background-color: #ffffff;
+        }
+
+        .form-group input::placeholder {
+            color: #94a3b8;
+        }
+
+        .form-group .btn-search {
+            width: 100%;
+            background-color: var(--primary-blue, #2563eb);
+            color: #ffffff;
+            font-weight: 600;
+            padding: 0.875rem 1rem;
+            border-radius: 0.75rem;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 10px 15px -3px #2563eb4d;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            margin-top: 1rem;
+        }
+
+        .form-group .btn-search:hover {
+            background-color: var(--primary-hover, #1d4ed8);
+            transform: translateY(-1px);
+            box-shadow: 0 12px 20px -3px rgba(37, 99, 235, 0.4);
+        }
+
+        .radio-group-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+
+        .radio-options {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-top: 0.25rem;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #1e293b;
+        }
+
+        .radio-option input[type="radio"] {
+            width: 1.1rem;
+            height: 1.1rem;
+            accent-color: var(--primary-blue, #2563eb);
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.html"><img src="images/logo.png"></a>
+        </div>
+        <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+            <a href="index.html" class="hover">Home</a>
+            <a href="estoque.html" class="hover">Estoque</a>
+            <a href="financiamento.html" class="hover">Financiamento</a>
+            <a href="#sobre" class="hover">Sobre Nós</a>
+            <a href="#contato" class="hover">Contato</a>
+        </nav>
+        <div class="hidden">
+            <a href="https://wa.me/#" target="_blank" class="whats">
+                <i class="whatsapp"></i>
+                Fale Conosco
+            </a>
+        </div>
+    </nav>
+    <br>
+    <br>
+    <br>
+
+    <container>
+        <form id="form-etapa1" class="form-group">
+            <div>
+                <h1>Dados Pessoais</h1>
+                <br>
+                <div>
+                    <label>Nome completo</label>
+                    <input type="text" name="nome" id="nome" placeholder="Digite seu nome" required>
+                </div>
+                <br>
+                <div>
+                    <label>CPF</label>
+                    <input type="text" name="cpf" id="cpf" placeholder="Digite seu CPF" required>
+                </div>
+                <br>
+                <div>
+                    <label>RG</label>
+                    <input type="text" name="rg" id="rg" placeholder="Digite seu RG">
+                </div>
+            </div>
+            <div>
+                <label for="genero">Gênero</label>
+                <select id="genero" name="genero" required>
+                    <option value="" disabled selected hidden>Selecione</option>
+                    <option value="Masculino">Masculino</option>
+                    <option value="Feminino">Feminino</option>
+                </select>
+            </div>
+            <div>
+                <label for="civil">Estado Civil</label>
+                <select id="civil" name="civil" required>
+                    <option value="" disabled selected hidden>Selecione</option>
+                    <option value="Solteiro(a)">Solteiro(a)</option>
+                    <option value="Casado(a)">Casado(a)</option>
+                    <option value="Viúvo(a)">Viúvo(a)</option>
+                    <option value="Divorciado(a)">Divorciado(a)</option>
+                </select>
+            </div>
+            <div>
+                <label>E-mail</label>
+                <input type="email" name="email" id="email" placeholder="Digite seu E-mail" required>
+            </div>
+            <div>
+                <label>Telefone</label>
+                <input type="text" name="telefone" id="telefone" placeholder="Digite seu telefone" required>
+            </div>
+            <div>
+                <button type="button" id="btn-proximo-1" class="btn-search">
+                    Próximo
+                </button>
+            </div>
+        </form>
+
+        <form id="form-etapa2" class="form-group" style="display: none;">
+            <h1>Dados Profissionais</h1>
+            <div>
+                <label>Empresa</label>
+                <input type="text" name="empresa" id="empresa" placeholder="Digite a empresa">
+            </div>
+            <div>
+                <label>Cargo/Função</label>
+                <input type="text" name="cargo" id="cargo" placeholder="Digite seu cargo">
+            </div>
+            <div>
+                <label>Renda mensal</label>
+                <input type="text" id="renda" placeholder="Digite sua renda">
+            </div>
+            <div>
+                <label>Telefone Empresarial</label>
+                <input class="t_empresa" id="t_empresa" type="tel" placeholder="Digite o telefone">
+            </div>
+            <div style="display: flex; gap: 10px; margin-top: 1rem;">
+                <button type="button" id="btn-voltar-2" class="btn-search"
+                    style="background-color: #64748b;">Voltar</button>
+                <button type="button" id="btn-proximo-2" class="btn-search">Próximo</button>
+            </div>
+        </form>
+
+        <form id="form-etapa3" class="form-group" style="display: none;">
+            <h1>Dados sobre o Veículo</h1>
+            <div>
+                <label for="marca">Marca de Desejo</label>
+                <select id="marca" name="marca">
+                    <option value="" disabled selected hidden>Selecione</option>
+                    <option value="Fiat">Fiat</option>
+                    <option value="Mercedes-Benz">Mercedes-Benz</option>
+                    <option value="Honda">Honda</option>
+                    <option value="BMW">BMW</option>
+                    <option value="Audi">Audi</option>
+                    <option value="Jeep">Jeep</option>
+                </select>
+            </div>
+            <div>
+                <label>Modelo de Desejo</label>
+                <input id="modelo" type="text" placeholder="ex: Pulse, C-Class...">
+            </div>
+            <div>
+                <label>Ano Mínimo</label>
+                <select id="ano" class="ano">
+                    <option value="">Ano</option>
+                    <option value="2024">2024</option>
+                    <option value="2022">2022 ou mais novo</option>
+                    <option value="2019">2019 ou mais novo</option>
+                    <option value="2014">2014 ou mais novo</option>
+                </select>
+            </div>
+            <div>
+                <label>Valor da entrada</label>
+                <input id="entrada" type="text" placeholder="Digite o valor">
+            </div>
+            <div>
+                <label>Parcelas Desejadas</label>
+                <select id="parcelas" class="parcelas">
+                    <option value="">Parcelas</option>
+                    <option value="12">12x</option>
+                    <option value="24">24x</option>
+                    <option value="36">36x</option>
+                    <option value="48">48x</option>
+                </select>
+            </div>
+            <div class="radio-group-container">
+                <label>Possui veículo na troca?</label>
+                <div class="radio-options">
+                    <label class="radio-option">
+                        <input type="radio" name="troca" id="troca-sim" value="Sim"> Sim
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="troca" id="troca-nao" value="Não" checked> Não
+                    </label>
+                </div>
+            </div>
+            <div>
+                <label>Marca do carro atual</label>
+                <select id="marca-atual">
+                    <option value="" disabled selected hidden>Selecione</option>
+                    <option value="Fiat">Fiat</option>
+                    <option value="Mercedes-Benz">Mercedes-Benz</option>
+                    <option value="Honda">Honda</option>
+                    <option value="BMW">BMW</option>
+                    <option value="Audi">Audi</option>
+                    <option value="Jeep">Jeep</option>
+                </select>
+            </div>
+            <div>
+                <label>Modelo do carro atual</label>
+                <input id="modelo-atual" type="text" placeholder="ex: Palio, Onix...">
+            </div>
+            <div>
+                <label>Ano do carro atual</label>
+                <select id="ano-atual">
+                    <option value="">Ano</option>
+                    <option value="2024">2024</option>
+                    <option value="2022">2022 ou mais antigo</option>
+                    <option value="2019">2019 ou mais antigo</option>
+                    <option value="2014">2014 ou mais antigo</option>
+                </select>
+            </div>
+            <div style="display: flex; gap: 10px; margin-top: 1rem;">
+                <button type="button" id="btn-voltar-3" class="btn-search"
+                    style="background-color: #64748b;">Voltar</button>
+                <button type="submit" id="btn-enviar" class="btn-search" style="background-color: #22c55e;">Enviar no
+                    WhatsApp</button>
+            </div>
+        </form>
+    </container>
+
+    <footer class="footer" id="contato">
+        <div class="footer-container">
+            <div class="footer-col" id="sobre">
+                <img src="images/logoPreta.png" alt="Vetorazzo Veículos" class="footer-logo">
+                <p class="footer-text">
+                    Com sólida trajetória no mercado automotivo, a Vetorazzo Veículos é referência em excelência e
+                    confiança. Trabalhamos constantemente para superar suas expectativas, oferecendo um estoque
+                    rigorosamente selecionado e de alta qualidade. Venha nos visitar e comprove nosso padrão superior de
+                    atendimento.
+                </p>
+            </div>
+            <div class="footer-col">
+                <h3 class="footer-title">Navegação</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="estoque.html">Estoque</a></li>
+                    <li><a href="financiamento.html">Financiamento</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3 class="footer-title">Contato</h3>
+                <p class="footer-contact-item"><i class="ph ph-phone"></i> (17) 3236-2397</p>
+                <p class="footer-contact-item"><i class="ph ph-whatsapp-logo"></i> (17) 99601-1686</p>
+                <p class="footer-contact-item"><i class="ph ph-map-pin"></i> Rua José Claro Salgado, 493 - Res. J.
+                    Macedo, S. J. Rio Preto - SP</p>
+                <div class="mt-2">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11616.611296522353!2d-49.43511662048673!3d-20.793596768433577!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94bdadca092f2efd%3A0x61859c09eb2eb3b0!2sR.%20Jos%C3%A9%20Claro%20Salgado%2C%20493%20-%20Parque%20Res.%20J.%20Macedo%2C%20S%C3%A3o%20Jos%C3%A9%20do%20Rio%20Preto%20-%20SP%2C%2015040-679!5e0!3m2!1spt-BR!2sbr!4v1794574835583!5m2!1spt-BR!2sbr"
+                        class="footer-map-iframe" allowfullscreen="" loading="lazy"
+                        referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Vetorazzo Veículos. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/#?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20ve%C3%ADculos."
+        target="_blank" rel="noopener" aria-label="Contato via WhatsApp" class="whatsapp-float">
+        <i class="ph ph-whatsapp-logo"></i>
+        <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    </a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const telefoneInput = document.getElementById('telefone');
+            if (telefoneInput) {
+                telefoneInput.addEventListener('input', (e) => {
+                    let value = e.target.value.replace(/\D/g, '');
+                    if (value.length > 11) value = value.slice(0, 11);
+
+                    if (value.length > 6) {
+                        value = value.replace(/^(\d{2})(\d{5})(\d{4}).*/, '($1) $2-$3');
+                    } else if (value.length > 2) {
+                        value = value.replace(/^(\d{2})(\d{1,5}).*/, '($1) $2');
+                    } else if (value.length > 0) {
+                        value = value.replace(/^(\d{1,2}).*/, '($1');
+                    }
+                    e.target.value = value;
+                });
+            }
+
+            const tEmpresaInput = document.getElementById('t_empresa');
+            if (tEmpresaInput) {
+                tEmpresaInput.addEventListener('input', (e) => {
+                    let value = e.target.value.replace(/\D/g, '');
+                    if (value.length > 11) value = value.slice(0, 11);
+                    if (value.length > 6) {
+                        value = value.replace(/^(\d{2})(\d{5})(\d{4}).*/, '($1) $2-$3');
+                    } else if (value.length > 2) {
+                        value = value.replace(/^(\d{2})(\d{1,5}).*/, '($1) $2');
+                    } else if (value.length > 0) {
+                        value = value.replace(/^(\d{1,2}).*/, '($1');
+                    }
+                    e.target.value = value;
+                });
+            }
+
+            const cpfInput = document.getElementById('cpf');
+            if (cpfInput) {
+                cpfInput.addEventListener('input', (e) => {
+                    let value = e.target.value.replace(/\D/g, '');
+                    if (value.length > 11) value = value.slice(0, 11);
+                    value = value.replace(/(\d{3})(\d)/, '$1.$2');
+                    value = value.replace(/(\d{3})(\d)/, '$1.$2');
+                    value = value.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+                    e.target.value = value;
+                });
+            }
+
+            const rgInput = document.getElementById('rg');
+            if (rgInput) {
+                rgInput.addEventListener('input', (e) => {
+                    let value = e.target.value.replace(/\D/g, '');
+                    if (value.length > 9) value = value.slice(0, 9);
+                    value = value.replace(/(\d{2})(\d)/, '$1.$2');
+                    value = value.replace(/(\d{3})(\d)/, '$1.$2');
+                    value = value.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+                    e.target.value = value;
+                });
+            }
+
+            const formatarMoeda = (e) => {
+                let value = e.target.value.replace(/\D/g, '');
+                if (value === '') {
+                    e.target.value = '';
+                    return;
+                }
+                value = (parseInt(value, 10) / 100).toLocaleString('pt-BR', { minimumFractionDigits: 2 });
+                e.target.value = value;
+            };
+
+            const rendaInput = document.getElementById('renda');
+            if (rendaInput) rendaInput.addEventListener('input', formatarMoeda);
+
+            const entradaInput = document.getElementById('entrada');
+            if (entradaInput) entradaInput.addEventListener('input', formatarMoeda);
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const form1 = document.getElementById('form-etapa1');
+            const form2 = document.getElementById('form-etapa2');
+            const form3 = document.getElementById('form-etapa3');
+
+            const btnProximo1 = document.getElementById('btn-proximo-1');
+            const btnProximo2 = document.getElementById('btn-proximo-2');
+            const btnVoltar2 = document.getElementById('btn-voltar-2');
+            const btnVoltar3 = document.getElementById('btn-voltar-3');
+
+            btnProximo1.addEventListener('click', () => {
+                const nome = document.getElementById('nome').value.trim();
+                const cpf = document.getElementById('cpf').value.trim();
+                const genero = document.getElementById('genero').value;
+                const civil = document.getElementById('civil').value;
+                const email = document.getElementById('email').value.trim();
+                const telefone = document.getElementById('telefone').value.trim();
+
+                if (!nome || !cpf || !genero || !civil || !email || !telefone) {
+                    alert('Por favor, preencha todos os campos obrigatórios da Etapa 1.');
+                    return;
+                }
+
+                form1.style.display = 'none';
+                form2.style.display = 'flex';
+            });
+
+            btnVoltar2.addEventListener('click', () => {
+                form2.style.display = 'none';
+                form1.style.display = 'flex';
+            });
+
+            btnProximo2.addEventListener('click', () => {
+                form2.style.display = 'none';
+                form3.style.display = 'flex';
+            });
+
+            btnVoltar3.addEventListener('click', () => {
+                form3.style.display = 'none';
+                form2.style.display = 'flex';
+            });
+
+            form3.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const nome = document.getElementById('nome').value;
+                const cpf = document.getElementById('cpf').value;
+                const rg = document.getElementById('rg').value;
+                const genero = document.getElementById('genero').value;
+                const civil = document.getElementById('civil').value;
+                const email = document.getElementById('email').value;
+                const telefone = document.getElementById('telefone').value;
+
+                const empresa = document.getElementById('empresa').value;
+                const cargo = document.getElementById('cargo').value;
+                const renda = document.getElementById('renda').value;
+                const tEmpresa = document.getElementById('t_empresa').value;
+
+                const marca = document.getElementById('marca').value;
+                const modelo = document.getElementById('modelo').value;
+                const ano = document.getElementById('ano').value;
+                const entrada = document.getElementById('entrada').value;
+                const parcelas = document.getElementById('parcelas').value;
+                const temTroca = document.getElementById('troca-sim').checked ? 'Sim' : 'Não';
+                const marcaAtual = document.getElementById('marca-atual').value;
+                const modeloAtual = document.getElementById('modelo-atual').value;
+                const anoAtual = document.getElementById('ano-atual').value;
+                const telefoneLoja = "#";
+                const texto = `*Nova Simulação de Financiamento - Vetorazzo Veículos*\n\n` +
+                    `*--- 1. Dados Pessoais ---*\n` +
+                    `*Nome:* ${nome}\n*CPF:* ${cpf}\n*RG:* ${rg || 'Não informado'}\n` +
+                    `*Gênero:* ${genero}\n*Estado Civil:* ${civil}\n` +
+                    `*E-mail:* ${email}\n*Telefone:* ${telefone}\n\n` +
+                    `*--- 2. Dados Profissionais ---*\n` +
+                    `*Empresa:* ${empresa || 'Não informada'}\n*Cargo:* ${cargo || 'Não informado'}\n` +
+                    `*Renda:* ${renda || 'Não informada'}\n*Tel. Empresarial:* ${tEmpresa || 'Não informado'}\n\n` +
+                    `*--- 3. Dados do Veículo ---*\n` +
+                    `*Desejo:* ${marca} ${modelo} (${ano})\n` +
+                    `*Entrada:* ${entrada || 'Nenhuma'}\n*Parcelas:* ${parcelas ? parcelas + 'x' : 'Não informado'}\n` +
+                    `*Veículo na Troca:* ${temTroca}\n` +
+                    (temTroca === 'Sim' ? `*Troca:* ${marcaAtual} ${modeloAtual} (${anoAtual})` : '');
+
+                const urlWhatsApp = `https://wa.me/${telefoneLoja}?text=${encodeURIComponent(texto)}`;
+                window.open(urlWhatsApp, '_blank');
+            });
+        });
+
+    </script>
+</body>
+
+</html>

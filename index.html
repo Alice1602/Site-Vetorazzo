@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="icon" href="images/vv.png">
+    <link rel="stylesheet" href="styles.css">
+    <title>VETORAZZO VEÍCULOS</title>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.html"><img src="images/logo.png"></a>
+        </div>
+        <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+            <a href="index.html" class="hover">Home</a>
+            <a href="estoque.html" class="hover">Estoque</a>
+            <a href="financiamento.html" class="hover">Financiamento</a>
+            <a href="#sobre" class="hover">Sobre Nós</a>
+            <a href="#contato" class="hover">Contato</a>
+        </nav>
+        <div class="hidden">
+            <a href="https://wa.me/#" target="_blank" class="whats">
+                <i class="whatsapp"></i>
+                Fale Conosco
+            </a>
+        </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero-section">
+        <div class="hero-bg">
+            <img src="images/Banner.png" alt="Carro Luxo Vetorazzo" id="hero-img">
+            <div class="hero-overlay"></div>
+        </div>
+
+        <div class="hero-container">
+            <h1 class="hero-title">Sua Próxima Conquista Começa Aqui</h1>
+            <p class="hero-description">
+                Encontre o veículo perfeito com a melhor condição, transparência e aprovação rápida do mercado.
+            </p>
+            <br>
+            <div class="search-box">
+                <form id="hero-search-form" class="search-form">
+                    <div class="form-group">
+                        <label for="filter-marca">Marca</label>
+                        <div class="select-wrapper">
+                            <select id="filter-marca" class="form-control">
+                                <option value="">Todas as Marcas</option>
+                                <option value="Fiat">Fiat</option>
+                                <option value="Mercedes-Benz">Mercedes-Benz</option>
+                                <option value="Honda">Honda</option>
+                                <option value="BMW">BMW</option>
+                                <option value="Audi">Audi</option>
+                                <option value="Jeep">Jeep</option>
+                            </select>
+                            <i class="ph ph-caret-down select-icon"></i>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="filter-modelo">Modelo</label>
+                        <input type="text" id="filter-modelo" placeholder="Ex: Pulse, C-Class..." class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="filter-ano">Ano Mínimo</label>
+                        <div class="select-wrapper">
+                            <select id="filter-ano" class="form-control">
+                                <option value="">Qualquer Ano</option>
+                                <option value="2024">2024</option>
+                                <option value="2022">2022 ou mais novo</option>
+                                <option value="2019">2019 ou mais novo</option>
+                                <option value="2014">2014 ou mais novo</option>
+                            </select>
+                            <i class="ph ph-caret-down select-icon"></i>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="filter-preco">Preço Máximo</label>
+                        <div class="select-wrapper">
+                            <select id="filter-preco" class="form-control">
+                                <option value="">Sem limite</option>
+                                <option value="30000">Até R$ 30.000</option>
+                                <option value="60000">Até R$ 60.000</option>
+                                <option value="100000">Até R$ 100.000</option>
+                                <option value="250000">Até R$ 250.000</option>
+                            </select>
+                            <i class="ph ph-caret-down select-icon"></i>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn-search">
+                            <i class="ph ph-magnifying-glass"></i>
+                            Buscar Veículos
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="secao-diferenciais">
+        <div class="escolha-header">
+            <span class="escolha-sub">Por que escolher a Vetorazzo?</span>
+            <h2 class="escolha-titulo">Facilidade e Segurança na sua Compra</h2>
+        </div>
+
+        <div class="grid-escolhas">
+            <!-- Card 1 -->
+            <div class="card-diferencial">
+                <div class="box-icone">
+                    <i class="ph ph-shield-check"></i>
+                </div>
+                <h3>Veículos Selecionados</h3>
+                <p>
+                    Estoque rigidamente inspecionado, com laudo cautelar aprovado e garantia de procedência total.
+                </p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card-diferencial">
+                <div class="box-icone">
+                    <i class="ph ph-bank"></i>
+                </div>
+                <h3>Financiamento Facilitado</h3>
+                <p>
+                    Parceria com as maiores financeiras para garantir aprovação ágil e as menores taxas do mercado.
+                </p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="card-diferencial">
+                <div class="box-icone">
+                    <i class="ph ph-user-check"></i>
+                </div>
+                <h3>Atendimento Humanizado</h3>
+                <p>
+                    Consultoria personalizada para você encontrar o carro ideal sem complicação e sem burocracia.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre" class="sobre">
+        <div class="corpo-img">
+            <div class="sobre-img">
+                <img src="images/vetorazzo.jpeg">
+            </div>
+            <div class="corpo-sobre">
+                <span class="sobre-sub">Sobre a gente</span>
+                <h1 class="corpo-titulo">Mais de uma década realizando sonhos sobre rodas</h1>
+                <p class="corpo">Com sólida trajetória no mercado automotivo, a Vetorazzo Veículos é referência em
+                    excelência e confiança. Trabalhamos
+                    constantemente para superar suas expectativas, oferecendo um estoque rigorosamente selecionado e de
+                    alta qualidade.
+                    Venha nos visitar e comprove nosso padrão superior de atendimento.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer" id="contato">
+        <div class="footer-container">
+            <div class="footer-col" id="sobre">
+                <img src="images/logoPreta.png" alt="Vetorazzo Veículos" class="footer-logo">
+                <p class="footer-text">
+                    Com sólida trajetória no mercado automotivo, a Vetorazzo Veículos é referência em excelência e
+                    confiança. Trabalhamos constantemente para superar suas expectativas, oferecendo um estoque
+                    rigorosamente selecionado e de alta qualidade. Venha nos visitar e comprove nosso padrão superior de
+                    atendimento.
+                </p>
+            </div>
+            <div class="footer-col">
+                <h3 class="footer-title">Navegação</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="estoque.html">Estoque</a></li>
+                    <li><a href="financiamento.html">Financiamento</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3 class="footer-title">Contato</h3>
+                <p class="footer-contact-item"><i class="ph ph-phone"></i> (17) 3236-2397</p>
+                <p class="footer-contact-item"><i class="ph ph-whatsapp-logo"></i> (17) 99601-1686</p>
+                <p class="footer-contact-item"><i class="ph ph-map-pin"></i> Rua José Claro Salgado, 493 - Res. J.
+                    Macedo, S. J. Rio Preto - SP</p>
+                <div class="mt-2">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11616.611296522353!2d-49.43511662048673!3d-20.793596768433577!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94bdadca092f2efd%3A0x61859c09eb2eb3b0!2sR.%20Jos%C3%A9%20Claro%20Salgado%2C%20493%20-%20Parque%20Res.%20J.%20Macedo%2C%20S%C3%A3o%20Jos%C3%A9%20do%20Rio%20Preto%20-%20SP%2C%2015040-679!5e0!3m2!1spt-BR!2sbr!4v1794574835583!5m2!1spt-BR!2sbr"
+                        class="footer-map-iframe" allowfullscreen="" loading="lazy"
+                        referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Vetorazzo Veículos. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/#?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20ve%C3%ADculos."
+        target="_blank" rel="noopener" aria-label="Contato via WhatsApp" class="whatsapp-float">
+        <i class="ph ph-whatsapp-logo"></i>
+        <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    </a>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const heroImg = document.getElementById('hero-img');
+            if (heroImg) {
+                setInterval(() => {
+                    heroImg.classList.toggle('zoom-effect');
+                }, 4000);
+            }
+
+            const searchForm = document.getElementById('hero-search-form');
+
+            if (searchForm) {
+                searchForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+
+                    const marca = document.getElementById('filter-marca').value;
+                    const modelo = document.getElementById('filter-modelo').value;
+                    const ano = document.getElementById('filter-ano').value;
+                    const preco = document.getElementById('filter-preco').value;
+
+                    console.log('Filtros Aplicados:', { marca, modelo, ano, preco });
+
+                    const estoqueSection = document.getElementById('estoque');
+                    if (estoqueSection) {
+                        estoqueSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
