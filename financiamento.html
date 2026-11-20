@@ -14,7 +14,7 @@
             align-items: center;
             min-height: calc(100vh - 80px);
             padding: 3rem 1.5rem;
-            background-color: var(--dark-bg, #0f172a);
+            background-color: rgba(220, 216, 216, 0.305);
         }
 
         .form-group {
@@ -23,7 +23,7 @@
             background-color: #ffffff;
             padding: 2.5rem;
             border-radius: 1.5rem;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 25px 50px -12px #00000040;
             border: 1px solid #f1f5f9;
             display: flex;
             flex-direction: column;
@@ -33,7 +33,7 @@
         .form-group h1 {
             font-size: 1.75rem;
             font-weight: 800;
-            color: #1e293b;
+            color: #fa5307;
             margin-bottom: 0.5rem;
             letter-spacing: -0.025em;
         }
@@ -41,7 +41,7 @@
         .form-group label {
             font-size: 0.75rem;
             font-weight: 600;
-            color: #64748b;
+            color: #e65c1cbb;
             text-transform: uppercase;
             letter-spacing: 0.05em;
             margin-bottom: 0.35rem;
@@ -53,7 +53,7 @@
             width: 100%;
             background-color: var(--bg-light, #f8fafc);
             border: 1px solid var(--border-color, #e2e8f0);
-            color: #1e293b;
+            color: #94a3b8;
             border-radius: 0.75rem;
             padding: 0.75rem 0.9rem;
             font-size: 0.875rem;
@@ -64,8 +64,8 @@
 
         .form-group input:focus,
         .form-group select:focus {
-            border-color: var(--primary-blue, #2563eb);
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+            border-color: var(--primary-blue, #e65c1cbb);
+            box-shadow: 0 0 0 3px #ea5a18bb;
             background-color: #ffffff;
         }
 
@@ -75,14 +75,14 @@
 
         .form-group .btn-search {
             width: 100%;
-            background-color: var(--primary-blue, #2563eb);
+            background-color: var(--primary-blue, #64748b);
             color: #ffffff;
             font-weight: 600;
             padding: 0.875rem 1rem;
             border-radius: 0.75rem;
             border: none;
             cursor: pointer;
-            box-shadow: 0 10px 15px -3px #2563eb4d;
+            box-shadow: 0 10px 15px -3px #64748b;
             transition: all 0.2s ease;
             display: flex;
             align-items: center;
@@ -93,9 +93,9 @@
         }
 
         .form-group .btn-search:hover {
-            background-color: var(--primary-hover, #1d4ed8);
+            background-color: var(--primary-hover, #64748b);
             transform: translateY(-1px);
-            box-shadow: 0 12px 20px -3px rgba(37, 99, 235, 0.4);
+            box-shadow: 0 12px 20px -3px #64748b;
         }
 
         .radio-group-container {
@@ -118,13 +118,13 @@
             cursor: pointer;
             font-size: 0.875rem;
             font-weight: 500;
-            color: #1e293b;
+            color: #e65c1cbb;
         }
 
         .radio-option input[type="radio"] {
             width: 1.1rem;
             height: 1.1rem;
-            accent-color: var(--primary-blue, #2563eb);
+            accent-color: #e65c1cbb;
             cursor: pointer;
         }
     </style>
@@ -133,20 +133,30 @@
 <body>
     <nav class="navbar">
         <div class="navbar-header">
-            <a class="navbar-brand" href="index.html"><img src="images/logo.png"></a>
-        </div>
-        <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
-            <a href="index.html" class="hover">Home</a>
-            <a href="estoque.html" class="hover">Estoque</a>
-            <a href="financiamento.html" class="hover">Financiamento</a>
-            <a href="#sobre" class="hover">Sobre Nós</a>
-            <a href="#contato" class="hover">Contato</a>
-        </nav>
-        <div class="hidden">
-            <a href="https://wa.me/#" target="_blank" class="whats">
-                <i class="whatsapp"></i>
-                Fale Conosco
+            <a class="navbar-brand" href="index.html">
+                <img src="images/logo.png" alt="Vetorazzo Veículos">
             </a>
+        </div>
+
+        <div class="nav-menu" id="navMenu">
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+                <a href="index.html" class="hover">Home</a>
+                <a href="estoque.html" class="hover">Estoque</a>
+                <a href="financiamento.html" class="hover">Financiamento</a>
+                <a href="#sobre" class="hover">Sobre Nós</a>
+                <a href="#contato" class="hover">Contato</a>
+            </nav>
+        </div>
+
+        <div class="navbar-actions">
+            <a href="https://wa.me/#" target="_blank" rel="noopener" class="whats">
+                <i class="ph ph-whatsapp-logo"></i>
+                <span>Fale Conosco</span>
+            </a>
+
+            <button type="button" class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
+                <i class="ph ph-list"></i>
+            </button>
         </div>
     </nav>
     <br>
@@ -170,12 +180,12 @@
                 <br>
                 <div>
                     <label>RG</label>
-                    <input type="text" name="rg" id="rg" placeholder="Digite seu RG">
+                    <input type="text" name="rg" id="rg" placeholder="Digite seu RG" required>
                 </div>
             </div>
             <div>
                 <label for="genero">Gênero</label>
-                <select id="genero" name="genero" required>
+                <select id="genero" name="genero">
                     <option value="" disabled selected hidden>Selecione</option>
                     <option value="Masculino">Masculino</option>
                     <option value="Feminino">Feminino</option>
@@ -183,7 +193,7 @@
             </div>
             <div>
                 <label for="civil">Estado Civil</label>
-                <select id="civil" name="civil" required>
+                <select id="civil" name="civil">
                     <option value="" disabled selected hidden>Selecione</option>
                     <option value="Solteiro(a)">Solteiro(a)</option>
                     <option value="Casado(a)">Casado(a)</option>
@@ -193,7 +203,7 @@
             </div>
             <div>
                 <label>E-mail</label>
-                <input type="email" name="email" id="email" placeholder="Digite seu E-mail" required>
+                <input type="email" name="email" id="email" placeholder="Digite seu E-mail">
             </div>
             <div>
                 <label>Telefone</label>
@@ -238,9 +248,9 @@
                 <select id="marca" name="marca">
                     <option value="" disabled selected hidden>Selecione</option>
                     <option value="Fiat">Fiat</option>
-                    <option value="Mercedes-Benz">Mercedes-Benz</option>
+                    <option value="FORD">Ford</option>
                     <option value="Honda">Honda</option>
-                    <option value="BMW">BMW</option>
+                    <option value="CHEVROLET">BMW</option>
                     <option value="Audi">Audi</option>
                     <option value="Jeep">Jeep</option>
                 </select>
@@ -324,10 +334,8 @@
             <div class="footer-col" id="sobre">
                 <img src="images/logoPreta.png" alt="Vetorazzo Veículos" class="footer-logo">
                 <p class="footer-text">
-                    Com sólida trajetória no mercado automotivo, a Vetorazzo Veículos é referência em excelência e
-                    confiança. Trabalhamos constantemente para superar suas expectativas, oferecendo um estoque
-                    rigorosamente selecionado e de alta qualidade. Venha nos visitar e comprove nosso padrão superior de
-                    atendimento.
+                    Sua concessionária de confiança em São José do Rio Preto. Veículos novos e seminovos com as melhores
+                    taxas do mercado.
                 </p>
             </div>
             <div class="footer-col">
@@ -364,6 +372,33 @@
     </a>
 
     <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const menuToggle = document.getElementById("menuToggle");
+            const navMenu = document.getElementById("navMenu");
+
+            if (menuToggle && navMenu) {
+                menuToggle.addEventListener("click", (e) => {
+                    e.stopPropagation();
+                    const isOpen = navMenu.classList.toggle("is-open");
+                    menuToggle.setAttribute("aria-expanded", String(isOpen));
+                });
+
+                navMenu.querySelectorAll("a").forEach((link) => {
+                    link.addEventListener("click", () => {
+                        navMenu.classList.remove("is-open");
+                        menuToggle.setAttribute("aria-expanded", "false");
+                    });
+                });
+
+                document.addEventListener("click", (e) => {
+                    if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+                        navMenu.classList.remove("is-open");
+                        menuToggle.setAttribute("aria-expanded", "false");
+                    }
+                });
+            }
+        });
+
         document.addEventListener('DOMContentLoaded', () => {
             const telefoneInput = document.getElementById('telefone');
             if (telefoneInput) {
