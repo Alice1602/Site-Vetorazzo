@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="icon" href="images/vv.png">
     <link rel="stylesheet" href="styles.css">
     <title>VETORAZZO VEÍCULOS</title>
@@ -13,21 +14,30 @@
 <body>
     <nav class="navbar">
         <div class="navbar-header">
-            <a class="navbar-brand" href="index.html"><img src="images/logo.png"></a>
-        </div>
-        <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
-            <a href="index.html" class="hover">Home</a>
-            <a href="estoque.html" class="hover">Estoque</a>
-            <a href="financiamento.html" class="hover">Financiamento</a>
-            <a href="#sobre" class="hover">Sobre Nós</a>
-            <a href="#contato" class="hover">Contato</a>
-        </nav>
-        <div class="hidden">
-            <a href="https://wa.me/#" target="_blank" class="whats">
-                <i class="whatsapp"></i>
-                Fale Conosco
+            <a class="navbar-brand" href="index.html">
+                <img src="images/logo.png" alt="Vetorazzo Veículos">
             </a>
         </div>
+
+        <div class="nav-menu" id="navMenu">
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+                <a href="index.html" class="hover">Home</a>
+                <a href="estoque.html" class="hover">Estoque</a>
+                <a href="financiamento.html" class="hover">Financiamento</a>
+                <a href="#sobre" class="hover">Sobre Nós</a>
+                <a href="#contato" class="hover">Contato</a>
+            </nav>
+        </div>
+
+        <div class="navbar-actions">
+            <a href="https://wa.me/#" target="_blank" rel="noopener" class="whats">
+                <i class="ph ph-whatsapp-logo"></i>
+                <span>Fale Conosco</span>
+            </a>
+
+            <button type="button" class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
+                <i class="ph ph-list"></i>
+            </button>
         </div>
     </nav>
 
@@ -43,68 +53,9 @@
                 Encontre o veículo perfeito com a melhor condição, transparência e aprovação rápida do mercado.
             </p>
             <br>
-            <div class="search-box">
-                <form id="hero-search-form" class="search-form">
-                    <div class="form-group">
-                        <label for="filter-marca">Marca</label>
-                        <div class="select-wrapper">
-                            <select id="filter-marca" class="form-control">
-                                <option value="">Todas as Marcas</option>
-                                <option value="Fiat">Fiat</option>
-                                <option value="Mercedes-Benz">Mercedes-Benz</option>
-                                <option value="Honda">Honda</option>
-                                <option value="BMW">BMW</option>
-                                <option value="Audi">Audi</option>
-                                <option value="Jeep">Jeep</option>
-                            </select>
-                            <i class="ph ph-caret-down select-icon"></i>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="filter-modelo">Modelo</label>
-                        <input type="text" id="filter-modelo" placeholder="Ex: Pulse, C-Class..." class="form-control">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="filter-ano">Ano Mínimo</label>
-                        <div class="select-wrapper">
-                            <select id="filter-ano" class="form-control">
-                                <option value="">Qualquer Ano</option>
-                                <option value="2024">2024</option>
-                                <option value="2022">2022 ou mais novo</option>
-                                <option value="2019">2019 ou mais novo</option>
-                                <option value="2014">2014 ou mais novo</option>
-                            </select>
-                            <i class="ph ph-caret-down select-icon"></i>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="filter-preco">Preço Máximo</label>
-                        <div class="select-wrapper">
-                            <select id="filter-preco" class="form-control">
-                                <option value="">Sem limite</option>
-                                <option value="30000">Até R$ 30.000</option>
-                                <option value="60000">Até R$ 60.000</option>
-                                <option value="100000">Até R$ 100.000</option>
-                                <option value="250000">Até R$ 250.000</option>
-                            </select>
-                            <i class="ph ph-caret-down select-icon"></i>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <button type="submit" class="btn-search">
-                            <i class="ph ph-magnifying-glass"></i>
-                            Buscar Veículos
-                        </button>
-                    </div>
-                </form>
-            </div>
         </div>
     </section>
-
+    <br>
     <section class="secao-diferenciais">
         <div class="escolha-header">
             <span class="escolha-sub">Por que escolher a Vetorazzo?</span>
@@ -112,7 +63,6 @@
         </div>
 
         <div class="grid-escolhas">
-            <!-- Card 1 -->
             <div class="card-diferencial">
                 <div class="box-icone">
                     <i class="ph ph-shield-check"></i>
@@ -123,7 +73,6 @@
                 </p>
             </div>
 
-            <!-- Card 2 -->
             <div class="card-diferencial">
                 <div class="box-icone">
                     <i class="ph ph-bank"></i>
@@ -134,7 +83,6 @@
                 </p>
             </div>
 
-            <!-- Card 3 -->
             <div class="card-diferencial">
                 <div class="box-icone">
                     <i class="ph ph-user-check"></i>
@@ -143,6 +91,94 @@
                 <p>
                     Consultoria personalizada para você encontrar o carro ideal sem complicação e sem burocracia.
                 </p>
+            </div>
+        </div>
+    </section>
+    <br>
+    <br>
+    <section class="secao-carrossel-home">
+        <div class="container-carrossel-home">
+            <div class="escolha-header">
+                <span class="escolha-sub">Destaques do Estoque</span>
+                <h2 class="escolha-titulo">Veículos em Destaque</h2>
+            </div>
+
+            <div class="carrossel-wrapper">
+                <button type="button" class="carrossel-seta prev" aria-label="Veículos anteriores"
+                    onclick="moverCarrosselHome(-1)">
+                    &#10094;
+                </button>
+
+                <div class="carrossel-trilho" id="carrosselHomeTrilho">
+                    <article class="card-carro card-carrossel-item">
+                        <div class="galeria-carro" data-fotos="images/agile2.jpg, images/agile1.jpg">
+                            <img src="images/agile2.jpg" alt="Chevrolet Agile" class="carro-img">
+                            <button type="button" class="btn-foto prev" aria-label="Foto anterior"
+                                onclick="trocarFotoCard(this, -1)">&#10094;</button>
+                            <button type="button" class="btn-foto next" aria-label="Próxima foto"
+                                onclick="trocarFotoCard(this, 1)">&#10095;</button>
+                        </div>
+                        <div class="card-carros">
+                            <h4>CHEVROLET - AGILE</h4>
+                            <p class="ano-km">2011 • 195.000 Km</p>
+                            <span class="preco">R$ 35.999,00</span>
+                            <a href="estoque.html?modelo=AGILE" class="btn-detalhes">Ver no Estoque</a>
+                        </div>
+                    </article>
+
+                    <article class="card-carro card-carrossel-item">
+                        <div class="galeria-carro" data-fotos="images/ONIX2.jpg, images/ONIX1.jpg">
+                            <img src="images/ONIX2.jpg" alt="Chevrolet Onix" class="carro-img">
+                            <button type="button" class="btn-foto prev" aria-label="Foto anterior"
+                                onclick="trocarFotoCard(this, -1)">&#10094;</button>
+                            <button type="button" class="btn-foto next" aria-label="Próxima foto"
+                                onclick="trocarFotoCard(this, 1)">&#10095;</button>
+                        </div>
+                        <div class="card-carros">
+                            <h4>CHEVROLET - ONIX</h4>
+                            <p class="ano-km">2019 • 90.000 Km</p>
+                            <span class="preco">R$ 55.900,00</span>
+                            <a href="estoque.html?modelo=ONIX" class="btn-detalhes">Ver no Estoque</a>
+                        </div>
+                    </article>
+
+                    <article class="card-carro card-carrossel-item">
+                        <div class="galeria-carro" data-fotos="images/MOBI1.jpg, images/MOBI2.jpg">
+                            <img src="images/MOBI1.jpg" alt="Fiat Mobi" class="carro-img">
+                            <button type="button" class="btn-foto prev" aria-label="Foto anterior"
+                                onclick="trocarFotoCard(this, -1)">&#10094;</button>
+                            <button type="button" class="btn-foto next" aria-label="Próxima foto"
+                                onclick="trocarFotoCard(this, 1)">&#10095;</button>
+                        </div>
+                        <div class="card-carros">
+                            <h4>FIAT - MOBI</h4>
+                            <p class="ano-km">2020 • 75.000 Km</p>
+                            <span class="preco">R$ 47.999,00</span>
+                            <a href="estoque.html?modelo=MOBI" class="btn-detalhes">Ver no Estoque</a>
+                        </div>
+                    </article>
+
+                    <article class="card-carro card-carrossel-item">
+                        <div class="galeria-carro" data-fotos="images/FIESTA.jpg, images/FIESTA2.jpg">
+                            <img src="images/FIESTA.jpg" alt="Ford Fiesta Hatch" class="carro-img">
+                            <button type="button" class="btn-foto prev" aria-label="Foto anterior"
+                                onclick="trocarFotoCard(this, -1)">&#10094;</button>
+                            <button type="button" class="btn-foto next" aria-label="Próxima foto"
+                                onclick="trocarFotoCard(this, 1)">&#10095;</button>
+                        </div>
+                        <div class="card-carros">
+                            <h4>FORD - FIESTA HATCH</h4>
+                            <p class="ano-km">2014 • 99.000 Km</p>
+                            <span class="preco">R$ 41.900,00</span>
+                            <a href="estoque.html?modelo=FIESTA" class="btn-detalhes">Ver no Estoque</a>
+                        </div>
+                    </article>
+                </div>
+
+                <button type="button" class="carrossel-seta next" aria-label="Próximos veículos"
+                    onclick="moverCarrosselHome(1)">
+                    &#10095;
+                </button>
             </div>
         </div>
     </section>
@@ -169,10 +205,8 @@
             <div class="footer-col" id="sobre">
                 <img src="images/logoPreta.png" alt="Vetorazzo Veículos" class="footer-logo">
                 <p class="footer-text">
-                    Com sólida trajetória no mercado automotivo, a Vetorazzo Veículos é referência em excelência e
-                    confiança. Trabalhamos constantemente para superar suas expectativas, oferecendo um estoque
-                    rigorosamente selecionado e de alta qualidade. Venha nos visitar e comprove nosso padrão superior de
-                    atendimento.
+                    Sua concessionária de confiança em São José do Rio Preto. Veículos novos e seminovos com as melhores
+                    taxas do mercado.
                 </p>
             </div>
             <div class="footer-col">
@@ -210,6 +244,33 @@
 
 
     <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const menuToggle = document.getElementById("menuToggle");
+            const navMenu = document.getElementById("navMenu");
+
+            if (menuToggle && navMenu) {
+                menuToggle.addEventListener("click", (e) => {
+                    e.stopPropagation();
+                    const isOpen = navMenu.classList.toggle("is-open");
+                    menuToggle.setAttribute("aria-expanded", String(isOpen));
+                });
+
+                navMenu.querySelectorAll("a").forEach((link) => {
+                    link.addEventListener("click", () => {
+                        navMenu.classList.remove("is-open");
+                        menuToggle.setAttribute("aria-expanded", "false");
+                    });
+                });
+
+                document.addEventListener("click", (e) => {
+                    if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+                        navMenu.classList.remove("is-open");
+                        menuToggle.setAttribute("aria-expanded", "false");
+                    }
+                });
+            }
+        });
+
         document.addEventListener('DOMContentLoaded', () => {
             const heroImg = document.getElementById('hero-img');
             if (heroImg) {
@@ -238,6 +299,52 @@
                 });
             }
         });
+
+        const searchForm = document.getElementById('hero-search-form');
+
+        if (searchForm) {
+            searchForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                const params = new URLSearchParams();
+                const marca = document.getElementById('filter-marca').value.trim();
+                const modelo = document.getElementById('filter-modelo').value.trim();
+                const ano = document.getElementById('filter-ano').value.trim();
+                const preco = document.getElementById('filter-preco').value.trim();
+
+                if (marca) params.set('marca', marca.toUpperCase());
+                if (modelo) params.set('modelo', modelo);
+                if (ano) params.set('ano', ano);
+                if (preco) params.set('preco', preco);
+
+                const queryString = params.toString();
+                window.location.href = queryString ? `estoque.html?${queryString}` : 'estoque.html';
+            });
+        }
+
+        function moverCarrosselHome(direcao) {
+            const trilho = document.getElementById('carrosselHomeTrilho');
+            if (!trilho) return;
+            const passo = Math.max(280, trilho.clientWidth * 0.8);
+            trilho.scrollBy({ left: direcao * passo, behavior: 'smooth' });
+        }
+
+        function trocarFotoCard(botao, direcao) {
+            const galeria = botao.closest(".galeria-carro");
+            const img = galeria.querySelector(".carro-img");
+            const listaAttr = galeria.getAttribute("data-fotos");
+            if (!listaAttr) return;
+
+            const fotos = listaAttr.split(",").map((item) => item.trim()).filter(Boolean);
+            if (fotos.length <= 1) return;
+
+            let indiceAtual = parseInt(galeria.getAttribute("data-indice") || "0", 10);
+            indiceAtual = (indiceAtual + direcao + fotos.length) % fotos.length;
+
+            galeria.setAttribute("data-indice", String(indiceAtual));
+            img.src = fotos[indiceAtual];
+        }
+
     </script>
 </body>
 
