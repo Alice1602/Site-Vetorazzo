@@ -4,48 +4,261 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estoque</title>
+    <title>Estoque - Vetorazzo Veículos</title>
     <link rel="icon" href="images/vv.png">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
 
 <body>
     <nav class="navbar">
         <div class="navbar-header">
-            <a class="navbar-brand" href="index.html"><img src="images/logo.png"></a>
-        </div>
-        <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
-            <a href="index.html" class="hover">Home</a>
-            <a href="estoque.html" class="hover">Estoque</a>
-            <a href="financiamento.html" class="hover">Financiamento</a>
-            <a href="#sobre" class="hover">Sobre Nós</a>
-            <a href="#contato" class="hover">Contato</a>
-        </nav>
-        <div class="hidden">
-            <a href="https://wa.me/#" target="_blank" class="whats">
-                <i class="whatsapp"></i>
-                Fale Conosco
+            <a class="navbar-brand" href="index.html">
+                <img src="images/logo.png" alt="Vetorazzo Veículos">
             </a>
         </div>
+
+        <div class="nav-menu" id="navMenu">
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+                <a href="index.html" class="hover">Home</a>
+                <a href="estoque.html" class="hover">Estoque</a>
+                <a href="financiamento.html" class="hover">Financiamento</a>
+                <a href="#sobre" class="hover">Sobre Nós</a>
+                <a href="#contato" class="hover">Contato</a>
+            </nav>
+        </div>
+
+        <div class="navbar-actions">
+            <a href="https://wa.me/#" target="_blank" rel="noopener" class="whats">
+                <i class="ph ph-whatsapp-logo"></i>
+                <span>Fale Conosco</span>
+            </a>
+
+            <button type="button" class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
+                <i class="ph ph-list"></i>
+            </button>
+        </div>
     </nav>
-    <br>
-    <br>
-    <br>
-    <br>
+
+    <section class="secao-estoque">
+        <div class="container-estoque">
+            <aside class="sidebar-filtros">
+                <form class="filtragem" id="formFiltro">
+                    <div class="form-filtro">
+                        <label for="marca">Marca</label>
+                        <div class="select-filtro">
+                            <select id="marca">
+                                <option value="">Todas as Marcas</option>
+                                <option value="CHEVROLET">Chevrolet</option>
+                                <option value="FIAT">Fiat</option>
+                                <option value="FORD">Ford</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-filtro">
+                        <label for="modelo">Modelo</label>
+                        <input type="text" id="modelo" placeholder="Ex: Agile, Onix, Mobi...">
+                    </div>
+
+                    <div class="form-filtro">
+                        <label for="ano">Ano Mínimo</label>
+                        <div class="select-filtro">
+                            <select id="ano">
+                                <option value="">Qualquer Ano</option>
+                                <option value="2020">2020 ou mais novo</option>
+                                <option value="2015">2015 ou mais novo</option>
+                                <option value="2010">2010 ou mais novo</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-filtro">
+                        <label for="preco">Preço Máximo</label>
+                        <div class="select-filtro">
+                            <select id="preco">
+                                <option value="">Sem limite</option>
+                                <option value="30000">Até R$ 30.000</option>
+                                <option value="50000">Até R$ 50.000</option>
+                                <option value="100000">Até R$ 100.000</option>
+                                <option value="200000">Até R$ 200.000</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-filtro">
+                        <button type="submit" class="btn-buscar">Buscar</button>
+                    </div>
+                </form>
+            </aside>
+
+            <main class="grid-veiculos-estoque" id="gridVeiculos">
+
+                <article class="card-carro" data-marca="CHEVROLET" data-modelo="AGILE" data-ano="2011"
+                    data-preco="35999">
+                    <div class="galeria-carro" data-fotos="images/agile2.jpg, images/agile1.jpg">
+                        <img src="images/agile2.jpg" class="carro-img" alt="Chevrolet Agile">
+                        <button type="button" class="btn-foto prev" aria-label="Foto anterior"
+                            onclick="trocarFotoCard(this, -1)">&#10094;</button>
+                        <button type="button" class="btn-foto next" aria-label="Próxima foto"
+                            onclick="trocarFotoCard(this, 1)">&#10095;</button>
+                    </div>
+                    <div class="card-carros">
+                        <h4>CHEVROLET - AGILE</h4>
+                        <p class="ano-km">2011 • 195.000 Km</p>
+                        <p>Anúncio: 696623</p>
+                        <span class="preco">R$ 35.999,00</span>
+                        <button type="button" class="btn-detalhes"
+                            onclick="abrirModalDetalhes('CHEVROLET - AGILE', '2011 • 195.000 Km', 'R$ 35.999,00', 'images/agile2.jpg',
+                                'Chevrolet Agile LTZ 1.4 COMPLETINHO TOP OBS CARRO VALE A PENA CONFERIR , 190.000 km. O carro possui ar condicionado, vidros e travas elétricas, sistema de som, conexão USB e bluetooth.')">
+                            Ver Detalhes
+                        </button>
+                    </div>
+                </article>
+
+                <article class="card-carro" data-marca="CHEVROLET" data-modelo="ONIX" data-ano="2019"
+                    data-preco="55900">
+                    <div class="galeria-carro" data-fotos="images/ONIX2.jpg, images/ONIX1.jpg">
+                        <img src="images/ONIX2.jpg" class="carro-img" alt="Chevrolet Onix">
+                        <button type="button" class="btn-foto prev" aria-label="Foto anterior"
+                            onclick="trocarFotoCard(this, -1)">&#10094;</button>
+                        <button type="button" class="btn-foto next" aria-label="Próxima foto"
+                            onclick="trocarFotoCard(this, 1)">&#10095;</button>
+                    </div>
+                    <div class="card-carros">
+                        <h4>CHEVROLET - ONIX</h4>
+                        <p class="ano-km">2019 • 90.000 Km</p>
+                        <p>Anúncio: 701691</p>
+                        <span class="preco">R$ 55.900,00</span>
+                        <button type="button" class="btn-detalhes"
+                            onclick="abrirModalDetalhes('CHEVROLET - ONIX', '2019 • 90.000 Km', 'R$ 55.900,00', 'images/ONIX2.jpg',
+                                'ONIX LT MOTOR 1.0 FLEX COMPLETINHO COM BANCOS EM COURO MISTO MAIS SOM MULTIMIDIA DA PIONEER COM AR CONDICIONADO COM DIREÇÃO HIDRÁULICA.')">
+                            Ver Detalhes
+                        </button>
+                    </div>
+                </article>
+
+                <article class="card-carro" data-marca="CHEVROLET" data-modelo="S10" data-ano="2023"
+                    data-preco="165000">
+                    <div class="galeria-carro" data-fotos="images/CAMINHONETE1.jpg, images/CAMINHONETE2.jpg">
+                        <img src="images/CAMINHONETE1.jpg" class="carro-img" alt="Chevrolet S10">
+                        <button type="button" class="btn-foto prev" aria-label="Foto anterior"
+                            onclick="trocarFotoCard(this, -1)">&#10094;</button>
+                        <button type="button" class="btn-foto next" aria-label="Próxima foto"
+                            onclick="trocarFotoCard(this, 1)">&#10095;</button>
+                    </div>
+                    <div class="card-carros">
+                        <h4>CHEVROLET - S10</h4>
+                        <p class="ano-km">2023 • 99.000 Km</p>
+                        <p>Anúncio: 697226</p>
+                        <span class="preco">R$ 165.000,00</span>
+                        <button type="button" class="btn-detalhes"
+                            onclick="abrirModalDetalhes('CHEVROLET - S10', '2023 • 99.000 Km', 'R$ 165.000,00', 'images/CAMINHONETE1.jpg',
+                                'CAMINHONETE TODA REVISADA NA GM COM OLEO DE CAMBIO TROCADO 4 PNEUS ZERO CAMINHONETE NAO FOI RODADA EM TERRA CAMINHONETE SEM DETALHE.')">
+                            Ver Detalhes
+                        </button>
+                    </div>
+                </article>
+
+                <article class="card-carro" data-marca="FIAT" data-modelo="MOBI" data-ano="2020" data-preco="47999">
+                    <div class="galeria-carro" data-fotos="images/MOBI1.jpg, images/MOBI2.jpg">
+                        <img src="images/MOBI1.jpg" class="carro-img" alt="Fiat Mobi">
+                        <button type="button" class="btn-foto prev" aria-label="Foto anterior"
+                            onclick="trocarFotoCard(this, -1)">&#10094;</button>
+                        <button type="button" class="btn-foto next" aria-label="Próxima foto"
+                            onclick="trocarFotoCard(this, 1)">&#10095;</button>
+                    </div>
+                    <div class="card-carros">
+                        <h4>FIAT - MOBI</h4>
+                        <p class="ano-km">2020 • 75.000 Km</p>
+                        <p>Anúncio: 703852</p>
+                        <span class="preco">R$ 47.999,00</span>
+                        <button type="button" class="btn-detalhes" onclick="abrirModalDetalhes('FIAT - MOBI', '2020 • 75.000 Km', 'R$ 47.999,00', 'images/MOBI1.jpg',
+                                'Carro baixo km, com multimídia e câmera de ré Completinho')">
+                            Ver Detalhes
+                        </button>
+                    </div>
+                </article>
+
+                <article class="card-carro" data-marca="FIAT" data-modelo="PALIO" data-ano="2007" data-preco="23900">
+                    <div class="galeria-carro" data-fotos="images/PALIO2.jpg, images/PALIO.jpg">
+                        <img src="images/PALIO2.jpg" class="carro-img" alt="Fiat Palio">
+                        <button type="button" class="btn-foto prev" aria-label="Foto anterior"
+                            onclick="trocarFotoCard(this, -1)">&#10094;</button>
+                        <button type="button" class="btn-foto next" aria-label="Próxima foto"
+                            onclick="trocarFotoCard(this, 1)">&#10095;</button>
+                    </div>
+                    <div class="card-carros">
+                        <h4>FIAT - PALIO</h4>
+                        <p class="ano-km">2007 • 140.000 Km</p>
+                        <p>Anúncio: 699675</p>
+                        <span class="preco">R$ 23.900,00</span>
+                        <button type="button" class="btn-detalhes" onclick="abrirModalDetalhes('FIAT - PALIO', '2007 • 140.000 Km', 'R$ 23.900,00', 'images/PALIO2.jpg',
+                                '1.0 MPI FIRE 8V FLEX 4P MANUAL')">
+                            Ver Detalhes
+                        </button>
+                    </div>
+                </article>
+
+                <article class="card-carro" data-marca="FORD" data-modelo="FIESTA" data-ano="2014" data-preco="41900">
+                    <div class="galeria-carro" data-fotos="images/FIESTA.jpg, images/FIESTA2.jpg">
+                        <img src="images/FIESTA.jpg" class="carro-img" alt="Ford Fiesta">
+                        <button type="button" class="btn-foto prev" aria-label="Foto anterior"
+                            onclick="trocarFotoCard(this, -1)">&#10094;</button>
+                        <button type="button" class="btn-foto next" aria-label="Próxima foto"
+                            onclick="trocarFotoCard(this, 1)">&#10095;</button>
+                    </div>
+                    <div class="card-carros">
+                        <h4>FORD - FIESTA HATCH</h4>
+                        <p class="ano-km">2014 • 99.000 Km</p>
+                        <p>Anúncio: 701515</p>
+                        <span class="preco">R$ 41.900,00</span>
+                        <button type="button" class="btn-detalhes" onclick="abrirModalDetalhes('FORD - FIESTA HATCH', '2014 • 99.000 Km', 'R$ 41.900,00', 'images/FIESTA.jpg',
+                                'NEW FIESTA 1.5 FLEX ANO 2014 TOP CARRO COMPLETO.')">
+                            Ver Detalhes
+                        </button>
+                    </div>
+                </article>
+
+                <div id="semResultados"
+                    style="display: none; grid-column: 1 / -1; text-align: center; padding: 2rem; color: #64748b;">
+                    <h3>Nenhum veículo encontrado com os filtros selecionados.</h3>
+                </div>
+
+            </main>
+        </div>
+    </section>
+
+    <div id="modalDetalhes" class="modal-backdrop" aria-hidden="true">
+        <div class="modal-conteudo">
+            <button type="button" id="fecharModal" class="btn-fechar">&times;</button>
+            <img id="modalImg" src="" alt="Foto do Veículo" class="modal-foto">
+            <h3 id="modalTitulo"></h3>
+            <p id="modalAnoKm" class="modal-sub"></p>
+            <span id="modalPreco" class="modal-valor"></span>
+            <div class="modal-descricao-box">
+                <h5>Diferenciais & Detalhes</h5>
+                <p id="modalDescricao"></p>
+            </div>
+            <a id="modalWhatsBtn" href="#" target="_blank" rel="noopener" class="btn-whats-modal">
+                <i class="ph ph-whatsapp-logo"></i>
+                Chamar no WhatsApp
+            </a>
+        </div>
+    </div>
+
     <a href="https://wa.me/#?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20ve%C3%ADculos."
         target="_blank" rel="noopener" aria-label="Contato via WhatsApp" class="whatsapp-float">
         <i class="ph ph-whatsapp-logo"></i>
-        <script src="https://unpkg.com/@phosphor-icons/web"></script>
     </a>
+
     <footer class="footer" id="contato">
         <div class="footer-container">
             <div class="footer-col" id="sobre">
                 <img src="images/logoPreta.png" alt="Vetorazzo Veículos" class="footer-logo">
                 <p class="footer-text">
-                    Com sólida trajetória no mercado automotivo, a Vetorazzo Veículos é referência em excelência e
-                    confiança. Trabalhamos constantemente para superar suas expectativas, oferecendo um estoque
-                    rigorosamente selecionado e de alta qualidade. Venha nos visitar e comprove nosso padrão superior de
-                    atendimento.
+                    Sua concessionária de confiança em São José do Rio Preto. Veículos novos e seminovos com as melhores
+                    taxas do mercado.
                 </p>
             </div>
             <div class="footer-col">
@@ -74,6 +287,124 @@
             <p>&copy; 2026 Vetorazzo Veículos. Todos os direitos reservados.</p>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const menuToggle = document.getElementById("menuToggle");
+            const navMenu = document.getElementById("navMenu");
+
+            if (menuToggle && navMenu) {
+                menuToggle.addEventListener("click", (e) => {
+                    e.stopPropagation();
+                    const isOpen = navMenu.classList.toggle("is-open");
+                    menuToggle.setAttribute("aria-expanded", String(isOpen));
+                });
+
+                navMenu.querySelectorAll("a").forEach((link) => {
+                    link.addEventListener("click", () => {
+                        navMenu.classList.remove("is-open");
+                        menuToggle.setAttribute("aria-expanded", "false");
+                    });
+                });
+
+                document.addEventListener("click", (e) => {
+                    if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+                        navMenu.classList.remove("is-open");
+                        menuToggle.setAttribute("aria-expanded", "false");
+                    }
+                });
+            }
+
+            const formFiltro = document.getElementById("formFiltro");
+            const cards = document.querySelectorAll(".card-carro");
+            const semResultados = document.getElementById("semResultados");
+
+            if (formFiltro) {
+                formFiltro.addEventListener("submit", (e) => {
+                    e.preventDefault();
+
+                    const valMarca = document.getElementById("marca").value.toUpperCase();
+                    const valModelo = document.getElementById("modelo").value.trim().toUpperCase();
+                    const valAno = parseInt(document.getElementById("ano").value) || 0;
+                    const valPreco = parseInt(document.getElementById("preco").value) || Infinity;
+
+                    let visiveis = 0;
+
+                    cards.forEach((card) => {
+                        const cardMarca = (card.getAttribute("data-marca") || "").toUpperCase();
+                        const cardModelo = (card.getAttribute("data-modelo") || "").toUpperCase();
+                        const cardAno = parseInt(card.getAttribute("data-ano")) || 0;
+                        const cardPreco = parseInt(card.getAttribute("data-preco")) || 0;
+
+                        const bateMarca = !valMarca || cardMarca === valMarca;
+                        const bateModelo = !valModelo || cardModelo.includes(valModelo);
+                        const bateAno = cardAno >= valAno;
+                        const batePreco = cardPreco <= valPreco;
+
+                        if (bateMarca && bateModelo && bateAno && batePreco) {
+                            card.style.display = "flex";
+                            visiveis++;
+                        } else {
+                            card.style.display = "none";
+                        }
+                    });
+
+                    if (semResultados) {
+                        semResultados.style.display = visiveis === 0 ? "block" : "none";
+                    }
+                });
+            }
+        });
+
+        function trocarFotoCard(botao, direcao) {
+            const galeria = botao.closest(".galeria-carro");
+            const img = galeria.querySelector(".carro-img");
+
+            const listaAttr = galeria.getAttribute("data-fotos");
+            if (!listaAttr) return;
+
+            const fotos = listaAttr.split(",").map((item) => item.trim()).filter(Boolean);
+            if (fotos.length <= 1) return;
+
+            let indiceAtual = parseInt(galeria.getAttribute("data-indice") || "0");
+            indiceAtual = (indiceAtual + direcao + fotos.length) % fotos.length;
+
+            galeria.setAttribute("data-indice", String(indiceAtual));
+            img.src = fotos[indiceAtual];
+        }
+
+        function abrirModalDetalhes(titulo, anoKm, preco, foto, descricao) {
+            const modal = document.getElementById("modalDetalhes");
+
+            document.getElementById("modalTitulo").textContent = titulo;
+            document.getElementById("modalAnoKm").textContent = anoKm;
+            document.getElementById("modalPreco").textContent = preco;
+            document.getElementById("modalImg").src = foto;
+            document.getElementById("modalDescricao").textContent = descricao;
+
+            const mensagem = encodeURIComponent(`Olá! Vim pelo site e gostaria de saber mais informações sobre o veículo: ${titulo} (${preco}).`);
+            document.getElementById("modalWhatsBtn").href = `https://wa.me/#?text=${mensagem}`;
+
+            modal.classList.add("is-open");
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const modal = document.getElementById("modalDetalhes");
+            const fechar = document.getElementById("fecharModal");
+
+            if (fechar && modal) {
+                fechar.addEventListener("click", () => {
+                    modal.classList.remove("is-open");
+                });
+
+                modal.addEventListener("click", (e) => {
+                    if (e.target === modal) {
+                        modal.classList.remove("is-open");
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>
